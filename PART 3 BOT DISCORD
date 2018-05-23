@@ -1,0 +1,21 @@
+const token string = "NDMxMDIzNjUxNDIxMjkwNTA2.DaY_2g.kzxo1Cwu7sgBxz-i51DV9jHe0IA"
+
+// BotID is the global bot id
+var BotID string
+
+func main() {
+    discord, err := discordgo.New("Bot " + token)
+
+    if err != nil {
+        fmt.Println(err.Error())
+        return
+    }
+
+    botUser, err := discord.User("@me")
+
+    if err != nil {
+        fmt.Println(err.Error())
+    }
+
+    BotID = botUser.ID
+}
